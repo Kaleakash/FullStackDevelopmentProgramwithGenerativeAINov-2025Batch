@@ -17,8 +17,8 @@
         var result1 = a>b;
         var result2 = a<b;
         var result3 = a>b && a >c;
-        var x1=100;
-        var x2="100";
+            var x1=100;     // number type consider 
+            var x2="100";   // string type consider 
         document.write("<br/> Arithmetic Operation")
         document.write("<br/> Sum is "+sum)
         document.write("<br/> Condition  Operation")
@@ -27,6 +27,8 @@
         document.write("<br/> a>b && a >c is "+result3)
         document.write("<br/> == it check only value<br/>")
         document.write(x1==x2)
+        document.write("<br/>")
+    document.write(typeof(x1)+" "+typeof(x2))
         document.write("<br/> === it check value as well as their data types<br/>")
         document.write(x1===x2)
         document.write("<br/> increment operator")
