@@ -52,6 +52,6 @@ let femaleInfo = (fname)=>"Miss "+fname;
 console.log(greeting("John",maleInfo))
 console.log(greeting("Neena",femaleInfo))
 console.log(greeting("Raj",function(fname){
-    return "Mr "+fname;
+    return "Mr...."+fname;
 }))
 console.log(greeting("Reeta",(fname)=>"Miss "+fname))
