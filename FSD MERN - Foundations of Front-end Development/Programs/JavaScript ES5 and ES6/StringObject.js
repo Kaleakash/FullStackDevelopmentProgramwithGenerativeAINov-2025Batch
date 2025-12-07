@@ -15,3 +15,4 @@ console.log(msg1.toLowerCase())
 console.log(msg1.toUpperCase())
 console.log(msg1.substring(4))
 console.log(msg1.substring(4,10))
+console.log(msg3.toString());
