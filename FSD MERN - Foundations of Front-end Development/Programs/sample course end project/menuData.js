@@ -1,4 +1,11 @@
 let cartInfo=[];
+
+function searchItemData(){
+    let mid = document.getElementById("mid").value
+   fetch('https://dummyjson.com/recipes/'+mid)
+    .then(res => res.json())
+    .then(result=>console.log(result)).catch(error=>console.log(error))
+}
 function showCartData() {
     console.log(cartInfo.length)
     document.getElementById("menu-item").style.display="none"
