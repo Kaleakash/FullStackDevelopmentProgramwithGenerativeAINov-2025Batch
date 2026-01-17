@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modern Goods - Online Store</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <style>
+    header, footer { text-align: center; }
+    .hero { text-align: center; padding: 5rem 1rem; background-color: #f5f5f5; }
+    .hero img { max-width: 100%; border-radius: 10px; }
+    .product-details img { width: 100%; border-radius: 8px; }
+    .testimonials { background-color: #f0f8ff; padding: 4rem 1rem; border-radius: 8px; }
+    .testimonial-item { margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  <nav class="container-fluid">
+    <ul><li><strong>Modern Goods</strong></li></ul>
+    <ul>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#subscribe" role="button">Subscribe</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Discover Modern Living</h1>
+      <p>Upgrade your lifestyle with our exclusive line of minimalist products designed for modern comfort.</p>
+      <figure>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Modern Product Showcase">
+        <figcaption>Explore the Collection</figcaption>
+      </figure>
+      <a href="#products" role="button">Shop Now</a>
+    </section>
+
+    <div class="grid product-details" id="products">
+      <section>
+        <hgroup>
+          <h2>Product Highlights</h2>
+          <h3>Design. Comfort. Innovation.</h3>
+        </hgroup>
+        <p>Our products blend functionality with elegant design to elevate your home and everyday experience.</p>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80" alt="Minimalist Chair" />
+          <figcaption><a href="https://unsplash.com/photos/K4mSJ7kc0As" target="_blank">Image via Unsplash</a></figcaption>
+        </figure>
+        <h3>Quality Materials</h3>
+        <p>Each product is crafted with precision and sustainable materials for durability and comfort.</p>
+        <h3>Modern Aesthetic</h3>
+        <p>Our clean lines and contemporary styles seamlessly fit into any home décor.</p>
+      </section>
+    </div>
+
+    <section class="testimonials" id="testimonials">
+      <hgroup>
+        <h2>What Our Customers Say</h2>
+        <h3>Trusted by thousands worldwide</h3>
+      </hgroup>
+      <div class="testimonial-item">
+        <blockquote>“Absolutely love the design and quality. It transformed my space instantly!”</blockquote>
+        <p>- Sarah M.</p>
+      </div>
+      <div class="testimonial-item">
+        <blockquote>“Excellent craftsmanship and top-notch customer service.”</blockquote>
+        <p>- Daniel K.</p>
+      </div>
+      <div class="testimonial-item">
+        <blockquote>“The perfect blend of modern style and comfort. Highly recommended!”</blockquote>
+        <p>- Aisha R.</p>
+      </div>
+    </section>
+  </main>
+
+  <section aria-label="Subscribe example" id="subscribe">
+    <div class="container">
+      <article>
+        <hgroup>
+          <h2>Stay Updated</h2>
+          <h3>Get the latest offers and design tips directly to your inbox.</h3>
+        </hgroup>
+        <form class="grid">
+          <input type="text" id="firstname" name="firstname" placeholder="Your Name" aria-label="Your Name" required />
+          <input type="email" id="email" name="email" placeholder="Email Address" aria-label="Email Address" required />
+          <button type="submit" onclick="event.preventDefault()">Subscribe</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <footer class="container">
+    <small>
+      <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a>
+    </small>
+  </footer>
+</body>
+</html>

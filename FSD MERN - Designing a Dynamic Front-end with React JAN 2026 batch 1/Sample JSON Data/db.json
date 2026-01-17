@@ -1,0 +1,84 @@
+{
+  "company": "TechNova Solutions",
+  "generatedOn": "2026-01-17",
+  "employees": [
+    {
+      "empId": 101,
+      "name": "Akash Kale",
+      "email": "akash.kale@technova.com",
+      "role": "Senior Software Engineer",
+      "experience": 6,
+      "skills": ["Java", "Spring Boot", "React", "Docker"],
+      "salary": 1450000,
+      "isActive": true,
+      "address": {
+        "city": "Pune",
+        "state": "Maharashtra",
+        "country": "India",
+        "pincode": 411057
+      },
+      "projects": [
+        {
+          "projectId": "P1001",
+          "projectName": "MediTrack",
+          "domain": "Healthcare",
+          "startDate": "2024-10-01",
+          "endDate": null,
+          "status": "IN_PROGRESS"
+        }
+      ]
+    },
+    {
+      "empId": 102,
+      "name": "Riya Sharma",
+      "email": "riya.sharma@technova.com",
+      "role": "Data Engineer",
+      "experience": 4,
+      "skills": ["Python", "Apache Spark", "PySpark", "SQL"],
+      "salary": 1200000,
+      "isActive": true,
+      "address": {
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "country": "India",
+        "pincode": 560102
+      },
+      "projects": [
+        {
+          "projectId": "P1002",
+          "projectName": "RealTime Analytics Engine",
+          "domain": "Big Data",
+          "startDate": "2023-07-15",
+          "endDate": "2025-01-10",
+          "status": "COMPLETED"
+        }
+      ]
+    },
+    {
+      "empId": 103,
+      "name": "Rahul Verma",
+      "email": "rahul.verma@technova.com",
+      "role": "DevOps Engineer",
+      "experience": 5,
+      "skills": ["AWS", "Terraform", "Jenkins", "Kubernetes"],
+      "salary": 1350000,
+      "isActive": false,
+      "address": {
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "country": "India",
+        "pincode": 500081
+      },
+      "projects": [
+        {
+          "projectId": "P1003",
+          "projectName": "Cloud Migration",
+          "domain": "DevOps",
+          "startDate": "2022-04-01",
+          "endDate": "2024-03-30",
+          "status": "COMPLETED"
+        }
+      ]
+    }
+  ]
+}

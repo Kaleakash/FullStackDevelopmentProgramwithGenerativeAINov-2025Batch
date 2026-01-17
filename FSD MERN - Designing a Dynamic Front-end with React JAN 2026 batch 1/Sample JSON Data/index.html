@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>JSON Server Demo</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JSON Server Demo</h1>
+    <table id="user-table">
+       <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+               <th>Email</th>
+                <th>Phone</th>
+           </tr>
+        </thead>
+        <tbody>
+            <!-- The table body will be populated with the data from the JSON server -->
+             
+        </tbody>
+    </table>
+    <script>
+        // Use the fetch API to get the data from the JSON server
+fetch('http://localhost:3000/users')
+    .then(response => response.json()) // Convert the response to JSON
+    .then(data => {
+        // Get the table body element
+        let tbody = document.getElementById('user-table').getElementsByTagName('tbody')[0];
+        // Loop through the data array
+        for (let user of data) {
+            // Create a new table row element
+            let tr = document.createElement('tr');
+            
+            // Create table cell elements for each user property
+            let td_id = document.createElement('td');
+                     let td_name = document.createElement('td');
+            let td_email = document.createElement('td');
+            let td_phone = document.createElement('td');
+            
+            // Set the text content of each table cell
+            td_id.textContent = user.id;
+            td_name.textContent = user.name;
+            td_email.textContent = user.email;
+            td_phone.textContent = user.phone;
+            
+            // Append the table cells to the table row
+            tr.appendChild(td_id);
+            tr.appendChild(td_name);
+            tr.appendChild(td_email);
+                     tr.appendChild(td_phone);
+            
+            // Append the table row to the table body
+            tbody.appendChild(tr);
+        }
+    })
+                .catch(error => {
+        console.error(error); // Handle any errors
+        });
+            
+    </script>
+</body>
+     </html>
