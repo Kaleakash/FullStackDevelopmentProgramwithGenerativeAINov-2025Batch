@@ -1,3 +1,4 @@
+import ArrayStateProperty from "./ArrayStateProperty"
 import PrimitiveState from "./PrimitiveState"
 
 function App() {
@@ -6,6 +7,8 @@ function App() {
     <div>
       <h2>React JS useState hook examples</h2>
       <PrimitiveState/>
+      <hr/>
+      <ArrayStateProperty/>
     </div>     
   )
 }

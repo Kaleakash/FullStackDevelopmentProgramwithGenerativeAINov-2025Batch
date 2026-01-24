@@ -20,7 +20,8 @@ let changeValue = () => {
     return(
         <div>
             <h3>Primitive State Example</h3>
-            <p>Employee details  id is {id} name is {name} salary is {salary} isActive is {isActive?"Yes":"No"}</p>
+            <p>Employee details  id is {id} name is {name} salary is {salary} isActive is 
+                {isActive?"Yes":"No"}</p>
             <input type="button" value="Increment" onClick={changeValue}/>
         </div>
     )
