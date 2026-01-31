@@ -1,4 +1,4 @@
-import {useEffect, useState } from "react"
+import React,{useEffect, useState} from "react"
 
 function SimpleUseEffect() {
 let [count,setCount] = useState(0)
@@ -24,12 +24,13 @@ let [count1,setCount1] = useState(0)
 useEffect(()=> {
     console.log("Component Mounted - loaded..SimpleUseEffect")
 
+
     return ()=> {
         console.log("Component Unmounted - cleanup..SimpleUseEffect")
     }
 },[])
     return(
-        <div>
+        <React.Fragment>
             <h2>useEffect Example</h2>
             <p>Count: {count} and Count1 : {count1}</p>
             <input type="button"
@@ -40,7 +41,7 @@ useEffect(()=> {
             value="Increment Count1"
             onClick={() => setCount1(count1 + 1)}
             />
-        </div>
+        </React.Fragment>
     )
 }
 

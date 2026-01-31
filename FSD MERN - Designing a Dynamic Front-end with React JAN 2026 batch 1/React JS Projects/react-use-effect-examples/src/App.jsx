@@ -10,14 +10,14 @@ let [msg,setMsg]=useState("Hide");
   
 
   return (
-    <div>
+    <>
       <h2>Toggle Component Visibility</h2>
       <input type='button' value={msg} onClick={() => {
         setFlag(!flag)
         setMsg(flag ? "Show" : "Hide")
       }}/>
       {flag && <SimpleUseEffect />} 
-    </div>
+    </>
   )
 }
 
