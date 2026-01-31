@@ -6,6 +6,7 @@ import Students from './Students'
 import Products from './Products'
 import InlineCSSComponent from './InlineCSSComponent'
 import MyComponent from './MyComponent'
+import StyledComponentExamples from './StyledComponentExamples'
 
 function App() {
  // comments in JS 
@@ -16,8 +17,9 @@ function App() {
       {/* <Students/>
       <hr/>
       <Products/> */}
-      <InlineCSSComponent/>
-      <MyComponent/>
+      {/* <InlineCSSComponent/>
+      <MyComponent/> */}
+      <StyledComponentExamples/>
     </div>
   )
 }
