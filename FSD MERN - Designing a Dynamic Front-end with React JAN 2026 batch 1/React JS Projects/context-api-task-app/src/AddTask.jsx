@@ -18,7 +18,7 @@ let handleSubmit = (event)=> {
             <h2>Add Task</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="task" value={task}
-                placeholder="Enter the Tas" onChange={(e)=>setTask(e.target.value)}/>
+                placeholder="Enter the Task" onChange={(e)=>setTask(e.target.value)}/>
                 <input type="submit" value="Add Task"/>
             </form>
             <hr/>
