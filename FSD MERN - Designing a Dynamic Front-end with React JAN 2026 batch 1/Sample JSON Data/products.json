@@ -6,29 +6,24 @@
       "id": "9cd1"
     },
     {
-      "id": "8a3f",
-      "name": "Pen Drive",
-      "price": 1600
+      "id": "46ea",
+      "name": "Sony TV",
+      "price": "87000"
     },
     {
-      "id": "b675",
-      "name": "Mobile",
-      "price": 76000
+      "id": "da9a",
+      "name": "Laptop",
+      "price": "98000"
     },
     {
-      "id": "5043",
-      "name": "Mobile",
-      "price": 76000
+      "id": "76f9",
+      "name": "Pen ",
+      "price": "190"
     },
     {
-      "id": "90a5",
-      "name": "Mobile",
-      "price": 76000
-    },
-    {
-      "id": "1ac0",
-      "name": "Hard Disk",
-      "price": 56000
+      "id": "",
+      "name": "Watch",
+      "price": "5000"
     }
   ]
 }
