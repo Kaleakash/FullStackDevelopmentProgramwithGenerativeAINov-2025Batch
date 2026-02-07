@@ -1,29 +1,14 @@
 {
   "products": [
     {
-      "name": "Hp Computer",
-      "price": 62000,
-      "id": "9cd1"
-    },
-    {
-      "id": "46ea",
-      "name": "Sony TV",
-      "price": "87000"
-    },
-    {
-      "id": "da9a",
-      "name": "Laptop",
-      "price": "98000"
-    },
-    {
       "id": "76f9",
       "name": "Pen ",
-      "price": "190"
+      "price": "220"
     },
     {
-      "id": "",
-      "name": "Watch",
-      "price": "5000"
+      "id": "e4b4",
+      "name": "HP Computer",
+      "price": "58000"
     }
   ]
 }

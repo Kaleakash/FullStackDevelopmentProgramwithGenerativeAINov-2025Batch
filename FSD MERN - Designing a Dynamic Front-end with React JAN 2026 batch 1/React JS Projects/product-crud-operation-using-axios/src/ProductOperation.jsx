@@ -5,6 +5,8 @@ let [products,setProducts]=useState([]);        // array of object
     let [product,setProduct]=useState({name:"",price:""}); //object name
 let [msg,setMessage]=useState("");
 let [errorMsg,setErrorMsg]=useState();
+let [buttonValue,setButtonValue]=useState("Add Product");
+
 let URL = "http://localhost:3000/products";
 let loadAllProducts = async () => {
     try{
@@ -22,21 +24,37 @@ let handleInputData= (event)=> {
     //console.log(name+" "+value)
     setProduct({...product,[name]:value});  // common function to set pname and price form property 
 }
-let storeProduct = async (event)=> {
+let storeOrUpdateProduct = async (event)=> {
     event.preventDefault();
     //console.log(product);
     // logic to store the data in json form using axios 
     try{
         // post method to store the data
         // 1st parameter url and 2nd parameter is json data. 
-    let result = await axios.post(URL,product)
+    if(buttonValue=="Add Product"){
+    let result = await axios.post(URL,product)      // store new product 
     console.log(result);
     setMessage(result.statusText);
+    } else {
+    let result = await axios.put(URL+"/"+product.id,product)    // update product price or name using id 
+    console.log(result);
+    setMessage(result.statusText);
+    }
 
     }catch(error){
         console.log(error.message)
     }
     setProduct({name:"",price:""})
+}
+let deleteProduct = async (pid)=> {
+    console.log(pid)
+    let result = await axios.delete(URL+"/"+pid);
+    setMessage(result.statusText);
+}
+let setValueInFormToUpdate = async(updateProduct)=> {
+    //console.log(updateProduct);
+    setProduct(updateProduct);      // updateProduct local variable set to state variable ie product 
+    setButtonValue("Update Product");
 }
 useEffect(()=> {
     loadAllProducts();
@@ -44,12 +62,12 @@ useEffect(()=> {
     return(
         <>
         <h2>Add Product</h2>
-        <form onSubmit={storeProduct}>
+        <form onSubmit={storeOrUpdateProduct}>
                 <input type="text" name="name" value={product.name}
                 onChange={handleInputData} placeholder="Enter the Product Name"/><br/>
             <input type="text" name="price" value={product.price}
             onChange={handleInputData} placeholder="Enter the Product Price"/><br/>
-            <input type="submit" value="Add Product"/>
+            <input type="submit" value={buttonValue}/>
         </form>
         <span style={{"color":"red"}}>{msg} {errorMsg}</span>
         <table border="1">
@@ -58,14 +76,24 @@ useEffect(()=> {
                         <th>PId</th>
                         <th>PName</th>
                         <th>Price</th>
+                        <th>Delete</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
                 <tbody>
                     {products.map(product=>
-                        <tr>
+                        <tr key={product.id}>
                             <td>{product.id}</td>
                             <td>{product.name}</td>
                             <td>{product.price}</td>
+                            <td>
+                                <input type="button" value="Delete"
+                                onClick={()=>deleteProduct(product.id)}/>
+                            </td>
+                            <td>
+                                <input type="button" value="Update"
+                                onClick={()=>setValueInFormToUpdate(product)}/>
+                            </td>
                         </tr>
                     )}
                 </tbody>
