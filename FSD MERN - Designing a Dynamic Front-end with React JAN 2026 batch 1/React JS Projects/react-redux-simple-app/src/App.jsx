@@ -5,6 +5,7 @@ import './App.css'
 import Hello from './Hello'
 import Info from './Info'
 import { useSelector } from 'react-redux'
+import IncrementN from './IncrementN'
 
 function App() {
 let fnameValue = useSelector(gs=>gs.fname)
@@ -14,6 +15,7 @@ let fnameValue = useSelector(gs=>gs.fname)
       <p>Global state variable fname value is {fnameValue}</p>
       <Hello></Hello>
       <Info></Info>
+      <IncrementN></IncrementN>
     </>
   )
 }
