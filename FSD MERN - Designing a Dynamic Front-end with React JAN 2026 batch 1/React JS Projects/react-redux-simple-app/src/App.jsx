@@ -6,16 +6,20 @@ import Hello from './Hello'
 import Info from './Info'
 import { useSelector } from 'react-redux'
 import IncrementN from './IncrementN'
+import DynamicIncrementN from './DynamicIncrement'
+import Employee from './Employee'
 
 function App() {
 let fnameValue = useSelector(gs=>gs.fname)
   return (
     <>
       <h2>React with Redux Simple Application</h2>
-      <p>Global state variable fname value is {fnameValue}</p>
+      {/* <p>Global state variable fname value is {fnameValue}</p>
       <Hello></Hello>
       <Info></Info>
       <IncrementN></IncrementN>
+      <DynamicIncrementN></DynamicIncrementN> */}
+      <Employee></Employee>
     </>
   )
 }
