@@ -3,6 +3,7 @@ import './App.css'
 import Counter from './Counter'
 import CounterIncrement from './CounterIncrement'
 import CounterDecrement from './CounterDecrement'
+import CounterDynamicIncrement from './CounterDynamicIncrement'
 
 function App() {
 let name = useSelector(gs=>gs.simpleReducer.name)  
@@ -13,7 +14,7 @@ let name = useSelector(gs=>gs.simpleReducer.name)
       <Counter></Counter>
       <CounterIncrement></CounterIncrement>
       <CounterDecrement></CounterDecrement>
-
+      <CounterDynamicIncrement></CounterDynamicIncrement>
     </>
   )
 }
