@@ -4,7 +4,7 @@ let simpleSlice = createSlice({
     name:"counter",
     initialState:{
         count:100,              // number 
-        name:"Akash"            // string 
+        name:"Akash"            // string       in memory data. 
     },
     reducers:{
         // it can contains more than one actions. 
