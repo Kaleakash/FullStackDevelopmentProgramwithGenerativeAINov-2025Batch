@@ -9,6 +9,21 @@
       "id": "e4b4",
       "name": "HP Computer",
       "price": "58000"
+    },
+    {
+      "id": "c172",
+      "name": "Laptop",
+      "price": "78000"
+    },
+    {
+      "id": "c583",
+      "name": "Mobile",
+      "price": "78000"
+    },
+    {
+      "id": "54d7",
+      "name": "Pen",
+      "price": "1700"
     }
   ]
 }
