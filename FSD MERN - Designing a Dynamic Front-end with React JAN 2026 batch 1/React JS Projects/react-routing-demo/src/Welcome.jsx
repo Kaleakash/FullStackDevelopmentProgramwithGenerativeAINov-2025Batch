@@ -1,0 +1,1 @@
+export let Welcome = ()=><h4>Welcome Component</h4>
