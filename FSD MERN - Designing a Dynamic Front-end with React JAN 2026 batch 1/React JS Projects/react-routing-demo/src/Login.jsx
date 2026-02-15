@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import loginDbDetails from "./koginDb";
+import loginDbDetails from "./loginDb";
 
 
 
