@@ -27,8 +27,11 @@ let checkLoginDetails = (event)=> {
     // }   
 
     // check details from in memory db. 
+    //console.log(loginDbDetails)
+    //console.log(emailId+" "+password)
     let result = loginDbDetails.find(ll=>ll.emailId===emailId && ll.password===password)
-    if(result==undefined){
+    //console.log(result)
+    if(result!==undefined){
         sessionStorage.setItem("user",emailId)  // set emailId in session storage. 
         navigate("/home")
     }else {
