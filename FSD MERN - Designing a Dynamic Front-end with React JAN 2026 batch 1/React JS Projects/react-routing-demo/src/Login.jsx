@@ -32,6 +32,8 @@ let checkLoginDetails = (event)=> {
     let result = loginDbDetails.find(ll=>ll.emailId===emailId && ll.password===password)
     //console.log(result)
     if(result!==undefined){
+        // tokenValue retrieve from backend technologies. tokenId unique 
+        //sessionStorage.setItem("token",tokenValue)
         sessionStorage.setItem("user",emailId)  // set emailId in session storage. 
         navigate("/home")
     }else {

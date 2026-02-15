@@ -5,6 +5,7 @@ function Dashboard() {
 let navigate = useNavigate();
 
 let user = sessionStorage.getItem("user")
+console.log(user)
     return(
         <div>
             <h2>Welcome to Home Page {user}

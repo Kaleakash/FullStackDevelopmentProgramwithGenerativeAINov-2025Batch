@@ -6,6 +6,8 @@ import { AboutUs } from './AboutUs'
 import { ContactUs } from './ContactUs'
 import Login from './Login'
 import Dashboard from './Dashboard'
+import { NotFoundComponent } from './NofFoundComponent'
+import ProtectedRouter from './ProtectedRouter'
 
 function App() {
 
@@ -23,7 +25,13 @@ function App() {
         <Route path='/aboutUs' element={<AboutUs/>}></Route>
         <Route path='/contactUs' element={<ContactUs/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
-        <Route path='/home' element={<Dashboard/>}></Route>
+        <Route  path='/home' element={
+              <ProtectedRouter>
+                    <Dashboard/>
+              </ProtectedRouter>
+          }>
+        </Route>
+        <Route path='*' element={<NotFoundComponent/>}></Route>
       </Routes>
     </>
   )
