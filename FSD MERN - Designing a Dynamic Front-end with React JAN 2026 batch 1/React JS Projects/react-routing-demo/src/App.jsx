@@ -5,6 +5,7 @@ import {Welcome} from './Welcome'
 import { AboutUs } from './AboutUs'
 import { ContactUs } from './ContactUs'
 import Login from './Login'
+import Dashboard from './Dashboard'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/aboutUs' element={<AboutUs/>}></Route>
         <Route path='/contactUs' element={<ContactUs/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
+        <Route path='/home' element={<Dashboard/>}></Route>
       </Routes>
     </>
   )
