@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import loginDbDetails from "./koginDb";
+
+
 
 function Login() {
 let [emailId,setEmailId]=useState("");
@@ -14,14 +17,23 @@ let checkLoginDetails = (event)=> {
     // checking emailId and password hardcoding 
     // in real time we need to pass this pass teh backend technologies using get or post 
     // generally post base upon result i
-    if(emailId==="admin@gmail.com" && password==="admin@123"){
-        //alert("successfully login   ")
-        setMessage("Successfully login")
+    // if(emailId==="admin@gmail.com" && password==="admin@123"){
+    //     //alert("successfully login   ")
+    //     setMessage("Successfully login")
+    //     navigate("/home")
+    // }else {
+    //     //alert("failure try once again")
+    //     setMessage("invalid emailId or password")
+    // }   
+
+    // check details from in memory db. 
+    let result = loginDbDetails.find(ll=>ll.emailId===emailId && ll.password===password)
+    if(result==undefined){
+        sessionStorage.setItem("user",emailId)  // set emailId in session storage. 
         navigate("/home")
     }else {
-        //alert("failure try once again")
         setMessage("invalid emailId or password")
-    }   
+    }
     setEmailId("")
     setPassword("")
 }
