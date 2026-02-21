@@ -1,0 +1,39 @@
+installed these dependencies after project creation. 
+
+
+npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom
+npm install @testing-library/user-event
+
+
+Configure Vitest in vite.config.js
+
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: "jsdom",
+    setupFiles: "./src/setupTests.js",
+    globals: true, 
+  },
+});
+
+
+
+Setup Test Environment
+src/setupTests.js
+import "@testing-library/jest-dom";
+
+
+
+Add these code in package.json file
+
+"scripts": {
+     "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
+    "test:coverage:report": "vitest run --coverage --reporter=html"
+}
+
+
