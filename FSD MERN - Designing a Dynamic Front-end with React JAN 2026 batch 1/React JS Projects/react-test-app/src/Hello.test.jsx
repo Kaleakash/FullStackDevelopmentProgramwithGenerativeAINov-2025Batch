@@ -9,6 +9,7 @@ describe("Hello Component Testing ",()=> {
     test("Hello Component should render correctly", ()=> {
         render(<Hello />)
         expect(screen.getByText("Hello, Vite with JEST!")).toBeInTheDocument();
+        
     })
 
 })
