@@ -41,6 +41,7 @@ describe("Login Component Testing ",()=> {
             screen.getByRole("button", { name: "Login" })
         )
         expect(screen.getByText("Login successful")).toBeInTheDocument();
+        //expect(screen.getByRole("")).toHaveTextContent("Login successful");
         
     })
 
