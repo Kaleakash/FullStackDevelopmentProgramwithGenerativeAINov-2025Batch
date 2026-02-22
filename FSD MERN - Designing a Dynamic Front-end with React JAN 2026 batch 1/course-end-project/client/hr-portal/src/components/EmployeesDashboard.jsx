@@ -21,7 +21,7 @@ let employeeEmail = localStorage.getItem("employeeEmail");
             {/*      <!-- This is where the nested routes will be rendered --> */}
             <Outlet />
         </div>
-        </>ś
+        </>
     )
 }
 
