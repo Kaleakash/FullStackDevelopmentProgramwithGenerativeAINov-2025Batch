@@ -35,5 +35,20 @@
       "email": "raj@gmail.com"
     }
   ],
-  "leaveInformation": []
+  "leaveInformation": [
+    {
+      "id": "8e39",
+      "employeeEmail": "raj@gmail.com",
+      "numberOfLeaves": "2",
+      "reasonForLeave": "Not feeling well",
+      "status": "approved"
+    },
+    {
+      "id": "6071",
+      "employeeEmail": "john@gmail.com",
+      "numberOfLeaves": "10",
+      "reasonForLeave": "Going to native place",
+      "status": "rejected"
+    }
+  ]
 }

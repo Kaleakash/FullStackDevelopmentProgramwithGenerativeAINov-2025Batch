@@ -11,7 +11,8 @@ let navigate = useNavigate();
         onClick={()=>navigate("/")}/>
         <h2>Welcome HR Dashboard</h2>
 
-        <Link to="viewEmployee">View Employees</Link>
+        <Link to="viewEmployee">View Employees</Link>|
+         <Link to="viewLeave">View Leaves</Link>
         <div>
             {/*      <!-- This is where the nested routes will be rendered --> */}
             <Outlet />

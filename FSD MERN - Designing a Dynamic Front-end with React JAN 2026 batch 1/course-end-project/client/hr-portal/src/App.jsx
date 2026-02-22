@@ -9,6 +9,8 @@ import HrDashboard from './components/HrDashboard'
 import EmployeesDashboard from './components/EmployeesDashboard'
 import ViewEmployee from './components/ViewEmployee'
 import ViewProfile from './components/ViewProfile'
+import ApplyLeave from './components/ApplyLeave'
+import ViewLeave from './components/ViewLeave'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,9 +25,11 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/hr-dashboard' element={<HrDashboard />} >
             <Route path='viewEmployee' element={<ViewEmployee />} />
+            <Route path='viewLeave' element={<ViewLeave />} />
         </Route>
         <Route path='/employee-dashboard' element={<EmployeesDashboard />} >
             <Route path='viewProfile' element={<ViewProfile />} />
+            <Route path='applyLeave' element={<ApplyLeave />} />
         </Route>
       </Routes>
     </>
