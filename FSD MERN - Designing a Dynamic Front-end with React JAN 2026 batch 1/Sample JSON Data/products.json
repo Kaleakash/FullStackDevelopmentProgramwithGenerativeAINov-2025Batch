@@ -1,29 +1,10 @@
 {
   "products": [
     {
-      "id": "76f9",
-      "name": "Pen ",
-      "price": "220"
-    },
-    {
-      "id": "e4b4",
-      "name": "HP Computer",
-      "price": "58000"
-    },
-    {
-      "id": "c172",
+      "id": "6cfc",
       "name": "Laptop",
-      "price": "78000"
-    },
-    {
-      "id": "c583",
-      "name": "Mobile",
-      "price": "78000"
-    },
-    {
-      "id": "54d7",
-      "name": "Pen",
-      "price": "1700"
+      "price": "89000"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
