@@ -117,3 +117,7 @@ if(empIndexPosition<0){
 // return type is new array with condition true 
 let activeEmployees = employees.filter(emp=>emp.isActive==true);    // return array object. 
 console.log("Number of employees are active "+activeEmployees.length) 
+let allSkills = employees.flatMap(emp => emp.skillSet); // one to many
+console.log(allSkills);
+let names = employees.map(emp=>emp.name);       // one to one 
+console.log(names);
