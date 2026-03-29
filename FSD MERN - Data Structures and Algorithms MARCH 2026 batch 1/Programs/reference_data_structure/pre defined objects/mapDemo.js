@@ -3,6 +3,7 @@ console.log(mm.size); // 0
 mm.set("name", "John");
 mm.set("age", 30);
 mm.set(1, "one");
+mm.set(2, true);
 
 console.log(mm.get("name"));
 console.log(mm.get(1));
