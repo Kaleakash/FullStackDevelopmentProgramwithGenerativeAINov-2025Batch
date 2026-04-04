@@ -1,4 +1,4 @@
-let num =  [5,2,9,1]
+let num =  [5,2,9,1,3,4,8,7,6]
 console.log("Before sorting: " + num)
 function quickSort(arr) {
     if (arr.length <= 1) {

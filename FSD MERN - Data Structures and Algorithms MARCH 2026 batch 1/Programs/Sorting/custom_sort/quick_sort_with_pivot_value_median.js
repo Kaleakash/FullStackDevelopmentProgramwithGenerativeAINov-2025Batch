@@ -4,17 +4,18 @@ function quickSort(arr) {
     if (arr.length <= 1) {
         return arr;
     }
-    let pivot = arr[arr.length - 1];
+    let medianIndex = Math.floor(arr.length / 2);
+    let pivot = arr[medianIndex];
     let left = [];
     let right = [];
-    for (let i = 0; i < arr.length - 1; i++) {
-        if (arr[i] < pivot) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < pivot && i !== medianIndex) {
             left.push(arr[i]);
-        } else {
+        } else if (arr[i] >= pivot && i !== medianIndex) {
             right.push(arr[i]);
         }
     }
     return quickSort(left).concat(pivot, quickSort(right));
 }
 let sortedNum = quickSort(num);
-console.log("After sorting: " + sortedNum);
+console.log("After sorting: " + sortedNum)
