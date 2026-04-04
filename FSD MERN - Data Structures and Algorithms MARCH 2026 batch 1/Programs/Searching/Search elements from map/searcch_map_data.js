@@ -1,0 +1,10 @@
+let mm = new Map();
+mm.set("raj@gamil.com", {name: "raj", age: 23});
+mm.set("rai@gmail.com", {name: "rai", age: 24});
+mm.set("John@gmail.com", {name: "John", age: 25});
+mm.set("Jane@gmail.com", {name: "Jane", age: 26});
+console.log(mm.get("raj@gamil.com"));
+console.log(mm.get("rai@gmail.com"));
+console.log(mm.get("John@gmail.com"));
+console.log(mm.get("Jane@gmail.com"));
+console.log(mm.get("Unknown@gmail.com"));
