@@ -49,6 +49,20 @@ select * from emp4_view;
 insert into emp4_view values(102,'Raj',35000,'Clerk');
 insert into emp values(103,'Ravi',32000,'HR');
 
+commit;
+
+select * from emp;
+start transaction;
+-- failure transaction 
+delete from emp where id=100;
+update emp set salary = 5000 where id=101;
+insert into emp values(110,'Mahesh',34000,'Manager');
+rollback;
+
+commit;
+
+
+
 
 
 
