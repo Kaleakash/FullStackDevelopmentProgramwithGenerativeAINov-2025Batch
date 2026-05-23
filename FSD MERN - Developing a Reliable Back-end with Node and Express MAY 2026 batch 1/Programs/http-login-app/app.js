@@ -35,6 +35,7 @@ let server = http.createServer((request,response)=> {
         }else if(request.method=="POST"){
             //response.write("Post Form Request")
             let bodyData = "";
+            
             request.on("data",(formData)=> {
                 bodyData = bodyData+formData.toString();
                 //console.log(bodyData);
