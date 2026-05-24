@@ -1,13 +1,9 @@
 let express = require("express")
 let app = express();
-
-
 // middleware 
 // it use to extract form post data. 
 app.use(express.urlencoded({extended:true}));
-
 // http://localhost:5000
-
 app.get("/",(request,response)=> {
    // response.send("Welcome to Node with Express JS")
    //response.sendFile("index.html");   // error 
@@ -16,12 +12,10 @@ app.get("/",(request,response)=> {
     //response.sendFile(__dirname+"/index.html")
     response.sendFile(__dirname+"/login.html");
 })
-
 // http://localhost:5000/login
 // app.get("/login",(request,response)=> {
 //     response.sendFile(__dirname+"/login.html")
 // })
-
 // http://localhost:5000/login get method 
 
 app.get("/checkLogin",(request,response)=> {
