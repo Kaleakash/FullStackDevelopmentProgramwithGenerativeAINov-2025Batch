@@ -31,9 +31,17 @@ app.post("/signIn",(request,response)=> {
             response.send("Email Id or Password is wrong or TypeOfUser")
     }else {
             if(result.typeOfUser=="Admin"){
-                    response.sendFile(__dirname+"/adminDashboard.html")
+                    //response.sendFile(__dirname+"/adminDashboard.html")
+                    let adminDashboardPage = fs.readFileSync("adminDashboard.html");
+                    response.write(adminDashboardPage)  // data load from file and write in response. 
+                    response.write(login.emailId);
+                    response.end();
             }else {
-                    response.sendFile(__dirname+"/customerDashboard.html");
+                    //response.sendFile(__dirname+"/customerDashboard.html");
+                     let customerDashboardPage = fs.readFileSync("customerDashboard.html");
+                    response.write(customerDashboardPage)  // data load from file and write in response. 
+                    response.write(login.emailId);
+                    response.end();
             }
     }
 })
