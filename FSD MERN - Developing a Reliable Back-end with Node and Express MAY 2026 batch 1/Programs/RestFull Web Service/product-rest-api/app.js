@@ -119,4 +119,39 @@ app.get("/api/findProductByIdUsingPathParam/:pid", (request,response) => {
     }
 })
 
+// http://localhost:3000/api/findProductByStock?stock=30
+app.get("/api/findProductByStock",(request,response)=> {
+    let stock = request.query.stock; // get the value of query parameter stock
+    // let price = request.query.price; // get the value of query parameter price
+    let filteredProducts = products.filter(p => p.stock >= stock); // filter products with stock greater than or equal to the given stock
+    if(filteredProducts.length > 0){
+        response.status(200).json(filteredProducts); // send the filtered products in json format
+    }else{
+        response.status(404).json({message: "No products found with the given stock"}); // send 404 status code and error message
+    }
+})
+
+// http://localhost:3000/api/findProductByPriceRange/1000/5000
+app.get("/api/findProductByPriceRange/:minPrice/:maxPrice",(request,response)=> {
+    let minPrice = request.params.minPrice;
+    let maxPrice = request.params.maxPrice;
+    let filteredProducts = products.filter(p => p.price >= minPrice && p.price <= maxPrice);
+    if(filteredProducts.length > 0){
+        response.status(200).json(filteredProducts);
+    }else{
+        response.status(404).json({message: "No products found with the given price range"});
+    }
+});
+// http://localhost:3000/api/findProductByPriceRangeQuery?minPrice=1000&maxPrice=5000
+app.get("/api/findProductByPriceRangeQuery",(request,response)=> {
+    let minPrice = request.query.minPrice;
+    let maxPrice = request.query.maxPrice;
+    let filteredProducts = products.filter(p => p.price >= minPrice && p.price <= maxPrice);
+    if(filteredProducts.length > 0){
+        response.status(200).json(filteredProducts);
+    }else{
+        response.status(404).json({message: "No products found with the given price range"});
+    }
+});
+
 app.listen(3000, ()=>console.log('Server is running on port 3000'));
