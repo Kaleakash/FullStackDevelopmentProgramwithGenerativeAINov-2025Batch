@@ -1,6 +1,11 @@
 let express = require('express');
 let app = express();
 
+
+// adding middleware to parse the request body as json
+
+app.use(express.json());
+
 // array of product in JavaScript object format
 const products = [
   {
@@ -132,6 +137,7 @@ app.get("/api/findProductByStock",(request,response)=> {
 })
 
 // http://localhost:3000/api/findProductByPriceRange/1000/5000
+
 app.get("/api/findProductByPriceRange/:minPrice/:maxPrice",(request,response)=> {
     let minPrice = request.params.minPrice;
     let maxPrice = request.params.maxPrice;
@@ -143,6 +149,7 @@ app.get("/api/findProductByPriceRange/:minPrice/:maxPrice",(request,response)=> 
     }
 });
 // http://localhost:3000/api/findProductByPriceRangeQuery?minPrice=1000&maxPrice=5000
+
 app.get("/api/findProductByPriceRangeQuery",(request,response)=> {
     let minPrice = request.query.minPrice;
     let maxPrice = request.query.maxPrice;
@@ -152,6 +159,21 @@ app.get("/api/findProductByPriceRangeQuery",(request,response)=> {
     }else{
         response.status(404).json({message: "No products found with the given price range"});
     }
+});
+
+
+// store the product 
+// http://localhost:3000/api/storeProduct
+app.post("/api/storeProduct",(request,response) => {
+    let newProduct = request.body; // get the product data from the request body
+   // console.log(newProduct); // print the new product data in the console
+   let productExists = products.some(p => p.id == newProduct.id); // check if a product with the same id already exists
+   if(productExists){
+       response.status(400).json({message: "Product with the same id already exists"}); // send 400 status code and error message
+   }else{
+       products.push(newProduct); // add the new product to the products array
+       response.status(201).json({message: "Product stored successfully"}); // send 201 status code and success message
+   }
 });
 
 app.listen(3000, ()=>console.log('Server is running on port 3000'));
