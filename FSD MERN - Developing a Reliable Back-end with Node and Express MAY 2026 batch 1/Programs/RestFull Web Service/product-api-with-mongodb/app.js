@@ -43,4 +43,56 @@ app.get("/api/findProducts", async (req, res) => {
     }
 })
 
+
+// find a product by ID
+// method get
+// http://localhost:3000/api/findProductById/1
+app.get("/api/findProductById/:pid", async (req, res) => {
+    try {
+        let pid = parseInt(req.params.pid);
+        let product = await db.collection('products').findOne({ _id: pid });
+        if (product) {
+            res.status(200).json(product);
+        } else {
+            res.status(404).json({ message: 'Product not found' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: 'Error fetching product' + err.message });
+    }
+})
+
+// update a product by ID
+// method put
+// http://localhost:3000/api/updateProductById/1
+app.put("/api/updateProductById/:pid", async (req, res) => {
+    try {
+        let pid = parseInt(req.params.pid);
+        let productData = req.body;
+        let result = await db.collection('products').updateOne({ _id: pid }, { $set: productData });
+        if (result.matchedCount === 0) {
+            res.status(404).json({ message: 'Product not found' });
+        } else {
+            res.status(200).json({ message: 'Product updated successfully' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: 'Error updating product' + err.message });
+    }
+});
+// delete product using id
+// method delete
+// http://localhost:3000/api/deleteProductById/1
+app.delete("/api/deleteProductById/:pid", async (req, res) => {
+    try {
+        let pid = parseInt(req.params.pid);
+        let result = await db.collection('products').deleteOne({ _id: pid });
+        if (result.deletedCount === 0) {
+            res.status(404).json({ message: 'Product not found' });
+        } else {
+            res.status(200).json({ message: 'Product deleted successfully' });
+        }
+    } catch (err) {
+        res.status(500).json({ message: 'Error deleting product' + err.message });
+    }
+});
+
 app.listen(3000,()=>console.log('Server is running on port 3000'));
