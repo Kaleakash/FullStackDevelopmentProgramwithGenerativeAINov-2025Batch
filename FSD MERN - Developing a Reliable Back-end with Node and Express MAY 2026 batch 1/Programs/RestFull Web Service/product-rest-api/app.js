@@ -176,4 +176,33 @@ app.post("/api/storeProduct",(request,response) => {
    }
 });
 
+// update product price using pid with path param 
+// http://localhost:3000/api/updateProductPrice/1
+app.put("/api/updateProductPrice/:pid",(request,response) => {
+    let pid = request.params.pid; // get the value of path parameter pid
+    let newPrice = request.body.price; // get the new price from the request body
+    // if present it return index of the product otherwise it return -1
+    let productIndex = products.findIndex(p => p.id == pid); // check if a product with the given id exists
+    if(productIndex !== -1){
+        let product = products[productIndex]; // find the product with the given id
+        product.price = newPrice; // update the price of the product
+        response.status(200).json({message: "Product price updated successfully"}); // send 200 status code and success message
+    }else{
+        response.status(404).json({message: "Product not found"}); // send 404 status code and error message
+    }
+})
+
+// delete a product using pid with path param
+// http://localhost:3000/api/deleteProduct/1
+app.delete("/api/deleteProduct/:pid",(request,response) => {
+    let pid = request.params.pid; // get the value of path parameter pid
+    let productIndex = products.findIndex(p => p.id == pid); // check if a product with the given id exists
+    if(productIndex !== -1){
+        products.splice(productIndex, 1); // remove the product from the products array 
+        response.status(200).json({message: "Product deleted successfully"}); // send 200 status code and success message
+    }else{
+        response.status(404).json({message: "Product not found"}); // send 404 status code and error message
+    } 
+})
+
 app.listen(3000, ()=>console.log('Server is running on port 3000'));
