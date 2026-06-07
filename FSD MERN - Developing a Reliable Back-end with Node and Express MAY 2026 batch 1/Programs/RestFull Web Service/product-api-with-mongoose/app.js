@@ -72,5 +72,66 @@ app.get("/api/findProducts", async (req, res) => {
     }       
 })
 
+// find product by id
+// http://localhost:3000/api/findProductById/101
+
+app.get("/api/findProductById/:id", async (req, res) => {
+    try {
+        let id = parseInt(req.params.id);
+        let product = await ProductModel.findById(id);
+        if (product) {
+            res.status(200).json(product);
+        } else {
+            res.status(404).json({ error: 'Product not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// update product price using _id 
+// http://localhost:3000/api/updateProductPrice/101
+app.put("/api/updateProductPrice/:id", async (req, res) => {
+    try {
+        let id = parseInt(req.params.id);
+        let newPrice = req.body.price;
+        let product = await ProductModel.findByIdAndUpdate(id, { price: newPrice });
+        if (product) {
+            res.status(200).json({ message: 'Product price updated successfully' });
+        } else {
+            res.status(404).json({ error: 'Product not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+// delete product by id
+// http://localhost:3000/api/deleteProductById/101
+app.delete("/api/deleteProductById/:id", async (req, res) => {
+    try {
+        let id = parseInt(req.params.id);
+        let product = await ProductModel.findByIdAndDelete(id);
+        if (product) {
+            res.status(200).json({ message: 'Product deleted successfully' });
+        } else {
+            res.status(404).json({ error: 'Product not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// find products by price range
+// http://localhost:3000/api/findProductsByPriceRange/120000/500000
+app.get("/api/findProductsByPriceRange/:minPrice/:maxPrice", async (req, res) => {
+    try {
+        let minPrice = parseInt(req.params.minPrice);
+        let maxPrice = parseInt(req.params.maxPrice);
+        let products = await ProductModel.find({ price: { $gte: minPrice, $lte: maxPrice } });
+        res.status(200).json(products);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }       
+});
 
 app.listen(3000, () => console.log('Server is running on port 3000'));
