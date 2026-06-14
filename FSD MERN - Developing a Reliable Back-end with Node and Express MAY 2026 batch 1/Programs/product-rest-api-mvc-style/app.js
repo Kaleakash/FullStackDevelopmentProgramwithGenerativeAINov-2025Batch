@@ -1,6 +1,7 @@
 const express = require("express");
 const connectDB = require("./config/dbConfig");
 const productRouter = require("./router/productRouter")
+const loginRouter = require("./router/loginRouter");
 const app = express();
 
 connectDB();        // it connect database. 
@@ -12,6 +13,10 @@ app.use(express.json());
 // http://localhost:3000/api/products/*
 
 app.use("/api/products", productRouter);
+
+// http://localhost:3000/api/logins/*
+
+app.use("/api/logins",loginRouter);
 
 const PORT = 3000;
 
