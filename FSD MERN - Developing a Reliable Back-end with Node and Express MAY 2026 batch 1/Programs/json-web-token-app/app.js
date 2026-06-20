@@ -39,12 +39,12 @@ app.post("/signIn",(request,response)=> {
 
 // get all products 
 // http://localhost:3000/findAllProducts
-app.get("/findAllProducts",(request,response)=> {
+app.get("/findAllProducts",verifyToken,(request,response)=> {
     response.json(products);
 });
 // store products or create new product 
 // http://localhost:3000/storeProduct
-app.post("/storeProduct",(request,response)=> {
+app.post("/storeProduct",verifyToken,(request,response)=> {
     let newProduct = request.body;
     let productExists = products.find(p=>p.pid==newProduct.pid);
     if(productExists){
@@ -56,6 +56,22 @@ app.post("/storeProduct",(request,response)=> {
 })
 
 
+// user defined function to make as middleware to verify token 
+function verifyToken(request,response,next){
+    // we can write any condition if true allow to call that end point else don't allow. 
+    const token = request.headers.authorization
+    if(!token){
+        response.json({"msg":"Token is missing"})
 
+
+        
+
+
+    }else {
+        //console.log("flow came to middleware verifyToken function")
+    next();
+    }
+    
+}
 
 app.listen(3000,()=>console.log("running on port number 3000"))
