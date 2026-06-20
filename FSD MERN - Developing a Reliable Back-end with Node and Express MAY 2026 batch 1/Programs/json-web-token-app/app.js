@@ -61,12 +61,17 @@ function verifyToken(request,response,next){
     // we can write any condition if true allow to call that end point else don't allow. 
     const token = request.headers.authorization
     if(!token){
-        response.json({"msg":"Token is missing"}
-
+        response.json({"msg":"Token is missing"})
     }else {
-        
+        try{
+        let validToken = jsonwebtoken.verify(token,secret_key)
+       // console.log(validToken)
         //console.log("flow came to middleware verifyToken function")
-    next();
+        next();
+        }catch(error){
+            response.json({"msg":"InValid token","error":error.message});
+        }
+    
     }
     
 }
