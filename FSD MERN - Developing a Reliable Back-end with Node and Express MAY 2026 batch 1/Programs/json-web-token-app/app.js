@@ -23,7 +23,8 @@ app.post("/signIn",(request,response)=> {
 
         const tokenValue = jsonwebtoken.sign(
             {
-                emailId:loginData.emailId
+                emailId:loginData.emailId,
+                role:loginExists.typeOfUser
             },
             secret_key,
             {
@@ -39,19 +40,26 @@ app.post("/signIn",(request,response)=> {
 
 // get all products 
 // http://localhost:3000/findAllProducts
+// this end point can call by customer as well as admin 
 app.get("/findAllProducts",verifyToken,(request,response)=> {
     response.json(products);
 });
 // store products or create new product 
 // http://localhost:3000/storeProduct
+// this end point need to call by only admin 
 app.post("/storeProduct",verifyToken,(request,response)=> {
+    if(request.role!=="admin"){
+        response.json({"msg":"You can't add the product because you are not admin"})
+    }else {
     let newProduct = request.body;
     let productExists = products.find(p=>p.pid==newProduct.pid);
     if(productExists){
         response.json({"msg":"Product id must be unique"})
-    }else {
+    }
+    else{ 
         products.push(newProduct);
         response.json({"msg":"Product store successfully"})
+    }
     }
 })
 
@@ -65,8 +73,10 @@ function verifyToken(request,response,next){
     }else {
         try{
         let validToken = jsonwebtoken.verify(token,secret_key)
-       // console.log(validToken)
+        console.log(validToken)
         //console.log("flow came to middleware verifyToken function")
+        // added role information in request object. 
+        request.role=validToken.role;
         next();
         }catch(error){
             response.json({"msg":"InValid token","error":error.message});
