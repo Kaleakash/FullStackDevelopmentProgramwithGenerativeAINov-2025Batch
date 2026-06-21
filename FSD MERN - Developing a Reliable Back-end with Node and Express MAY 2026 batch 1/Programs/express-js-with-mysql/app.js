@@ -6,11 +6,12 @@ const app = express();
 
 app.use(express.json());
 
+//db.connect();
 /*
 CREATE Employee
 POST /employees
 */
-app.post("/employees", (req, res) => {
+app.post("/storeEmployee", (req, res) => {
     const { name, email, salary } = req.body;
 
     const sql =
@@ -32,8 +33,8 @@ app.post("/employees", (req, res) => {
 READ All Employees
 GET /employees
 */
-app.get("/employees", (req, res) => {
-
+app.get("/findEmployee", (req, res) => {
+    console.log("request sent")
     db.query(
         "SELECT * FROM employees",
         (err, result) => {
@@ -50,7 +51,7 @@ app.get("/employees", (req, res) => {
 READ Employee By Id
 GET /employees/:id
 */
-app.get("/employees/:id", (req, res) => {
+app.get("/findEmployeeById/:id", (req, res) => {
 
     db.query(
         "SELECT * FROM employees WHERE id=?",
@@ -70,7 +71,7 @@ app.get("/employees/:id", (req, res) => {
 UPDATE Employee
 PUT /employees/:id
 */
-app.put("/employees/:id", (req, res) => {
+app.put("/updateEmployee/:id", (req, res) => {
 
     const { name, email, salary } = req.body;
 
@@ -97,7 +98,7 @@ app.put("/employees/:id", (req, res) => {
 DELETE Employee
 DELETE /employees/:id
 */
-app.delete("/employees/:id", (req, res) => {
+app.delete("/deleteEmployee/:id", (req, res) => {
 
     db.query(
         "DELETE FROM employees WHERE id=?",
@@ -114,6 +115,8 @@ app.delete("/employees/:id", (req, res) => {
         }
     );
 });
+
+
 
 app.listen(3000, () => {
     console.log("Server Running on Port 3000");
