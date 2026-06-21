@@ -1,21 +1,22 @@
 /// <reference types="cypress" />
 
+describe('Google Search Test', () => {
 
-describe('example to-do app', () => {
-  beforeEach(() => {
+  it('Search for Cypress Testing', () => {
 
-    cy.visit('https://www.google.com/')
-  })
+    cy.visit('https://www.google.com/');
 
-  it('google page testing', () => {
-    
-    //cy.get('.todo-list li').should('have.length', 2)
-    cy.get("#APjFqb").type("What is cypress testing");
-    
-    //cy.get('button').as('btn').click()
-    cy.get(".gNO89b").first().click();
-     cy.contains("cypress testing").should("be.visible")
-  })
+    // Type search text and press Enter
+    cy.get('textarea[name="q"]')
+      .should('be.visible')
+      .type('What is Cypress Testing{enter}');
 
+    // Verify search results page
+    cy.url().should('include', 'search');
 
-})
+    // Verify search text appears on page
+    cy.contains('Cypress', { matchCase: false })
+      .should('be.visible');
+  });
+
+});
